@@ -11,9 +11,9 @@ def main():
     except Exception as e: 
         print(e)
         sys.exit(1) 
-   
-
-    print(f'Input prompt: {prompt}')    
+    
+    if "--verbose" in sys.argv:
+        print(f'User prompt: {prompt}')  
     
     load_dotenv()
     api_key = os.environ.get("GEMINI_API_KEY")
@@ -23,8 +23,10 @@ def main():
                                    contents = prompt)
     print(response.text)
     
-    print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
-    print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+    if "--verbose" in sys.argv:
+        print(f"Prompt tokens: {response.usage_metadata.prompt_token_count}")
+        print(f"Response tokens: {response.usage_metadata.candidates_token_count}")
+     
 
 
 if __name__ == "__main__":
