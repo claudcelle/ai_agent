@@ -10,4 +10,11 @@ wheels/
 .venv
 
 
+*.txt
+*.md
+!README.md
+
+elucubrazioni.ipynb
+
+
 .env
