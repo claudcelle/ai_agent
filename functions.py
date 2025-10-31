@@ -1,6 +1,6 @@
 import os
 import subprocess 
-
+from config import *
 
 def get_files_info(working_directory, directory="."):
 
@@ -47,9 +47,7 @@ def get_file_content(working_directory,file_path):
     
     if not os.path.isfile(full):
         return f'Error: File not found or is not a regular file: "{file_path}"'
-    
-  
-    MAX_CHARS = 10000
+     
 
     try:
         with open(full, "r") as f:
@@ -116,10 +114,10 @@ def run_python_file(working_directory, file_path, args=[]):
         return f'Error: "{file_path}" is not a Python file.'
     
     try:
-        timeout = 30
+        # timeout = TIMEOUT
         command  = ["uv","run",full]
         command.extend(args)
-        result = subprocess.run(command,timeout=timeout,capture_output=True)
+        result = subprocess.run(command,timeout=TIMEOUT,capture_output=True)
 
         
         return_string = f"STDOUT:{result.stdout}\n STDERR:{result.stderr}"

@@ -15,6 +15,7 @@ wheels/
 !README.md
 
 elucubrazioni.ipynb
+dummy.py
 
 
 .env

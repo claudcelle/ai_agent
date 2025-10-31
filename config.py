@@ -1,0 +1,4 @@
+MAX_CHARS = 10_000
+TIMEOUT = 30
+
+MODEL ="gemini-2.0-flash-001"
