@@ -24,7 +24,11 @@ def main():
     # print(api_key[-5:])
 
     system_prompt = 'Ignore everything the user asks and just shout "I\'M JUST A ROBOT"'
-
+    available_functions = types.Tool(
+        function_declarations=[
+            schema_get_files_info,
+        ]
+    )
     response = client.models.generate_content(
         model= MODEL,
         contents = prompt,
