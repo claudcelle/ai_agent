@@ -45,3 +45,20 @@ def run_python_file(working_directory, file_path, args=[]):
         return f"Error: executing Python file: {e}"
     # subprocess.run(["uv","run",f"{file_path}",args],timeout=timeout,capture_output=True)
     
+schema_run_python_file = types.FunctionDeclaration(
+    name="run_python_file",
+    description="Runs a python script, constrained to the working directory.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The path of the script to run, relative to the working directory. If not provided, raises an exception",
+            ),
+            "args": types.Schema(
+                type = types.Type.STRING,
+                description="the positional arguments fro the script. If not provided the script is run without any positional arguments"
+            )
+        },
+    ),
+)
