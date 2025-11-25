@@ -17,7 +17,7 @@ wheels/
 elucubrazioni.ipynb
 dummy.py
 main_old.py
-./functions/functions_depr.py
+functions/functions_depr.py
 
 
 .env
